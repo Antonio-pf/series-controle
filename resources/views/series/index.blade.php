@@ -14,15 +14,15 @@
         @foreach ($series as $serie)
             <li class="list-group-item d-flex justify-content-between align-items-center">
           
-
                 <div class="d-flex flex-row align-items-center gap-2">
                     <a href="{{ route('series.show', $serie->id)}}">
                         <i class="bi bi-plus-circle-fill">
                        </i>
                     </a>
     
+                    <a href="{{ route('seasons.index', $serie->id)}}">
                     <small class="fs-5 fw-medium">{{ $serie->nome }}</small>
-    
+                </a>
                 </div>
                
                 
