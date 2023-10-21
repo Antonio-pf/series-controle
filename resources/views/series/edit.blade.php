@@ -3,9 +3,7 @@
     <x-series.form 
         :action="route('series.update', $serie->id)"
         :nome="$serie->nome"
+        :seasonQty="$serie->seasons->count()"
         :update="true"
     />
-
-    
-
 </x-layout>   

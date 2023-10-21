@@ -80,8 +80,10 @@ class SeriesController extends Controller
 
     public function update(Series $series, SeriesFormRequest $request)
     {
+
         $series->fill($request->all());
         $series->save();
+        
 
         return to_route('series.index')
             ->with('mensagem.sucesso', "Série '{$series->nome}' atualizada com sucesso!");

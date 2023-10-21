@@ -1,6 +1,10 @@
 <x-layout title="Nova série">
 
 
+    <x-series.form 
+    :action="route('series.store')"
+    :update="true"
+/>
     <form action="{{ route('series.store') }}" method="post">
         @csrf
 
@@ -16,7 +20,7 @@
             </div>
 
             <div class="col-2">
-                <label for="seasonQty" class="form-label">N: de temporadas:</label>
+                <label for="seasonQty" class="form-label">N de temporadas:</label>
                 <input type="text" 
                         id="seasonQty" 
                         name="seasonQty" 
