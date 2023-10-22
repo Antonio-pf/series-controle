@@ -17,7 +17,7 @@
                     id="seasonQty" 
                     name="seasonQty" 
                     class="form-control" 
-                    @isset($seasonQty) value="{{ $seasonQty }}" @endisset>>
+                    @isset($seasonQty) value="{{ $seasonQty }}" @endisset>
         </div>
 
         <div class="col-2">
@@ -32,6 +32,5 @@
 
     <button type="submit" class="btn btn-primary">
         Adicionar
-
     </button>
 </form>
