@@ -4,13 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\SeriesFormRequest;
 use App\Models\Series;
-use App\Models\SeriesRepository as ModelsSeriesRepository;
 use App\Repositories\SeriesRepository;
-
 use Illuminate\Http\Request;
 
 class SeriesController extends Controller
 {
+
+    public function __construct(private SeriesRepository $repository)
+    {
+    }
     public function index(Request $request)
     {
         $series = Series::with(['seasons'])->get();
@@ -26,10 +28,7 @@ class SeriesController extends Controller
     public function store(SeriesFormRequest $request)
     {
 
-    $repository = new SeriesRepository();
-    
-
-       $serie = $repository->add($request);
+        $serie = $this->repository->add($request);
 
         return to_route('series.index')
             ->with('mensagem.sucesso', "Série '{$serie->nome}' adicionado com sucesso!");
@@ -54,7 +53,7 @@ class SeriesController extends Controller
     public function update(Series $series, SeriesFormRequest $request)
     {
 
-       // falta editar numro de eps e de seasons
+        // falta editar numro de eps e de seasons
         $series->fill($request->all());
         $series->save();
 
