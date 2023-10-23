@@ -8,6 +8,7 @@
         <div class="col-8">
             <label for="nome" class="form-label">Nome:</label>
             <input type="text" id="nome" name="nome" class="form-control"
+            autofocus
                 @isset($nome) value="{{ $nome }}"
            @endisset>
         </div>

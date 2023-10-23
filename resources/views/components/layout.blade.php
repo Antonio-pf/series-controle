@@ -13,7 +13,7 @@
 
 
 
-    <div class="container mt-3">
+    <div class="container mt-3 mb-3">
         <h1>{{ $title }} </h1>
 
 
