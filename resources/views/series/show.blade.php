@@ -7,13 +7,13 @@
         <h4 class="my-0 fw-normal"> {{$serie->nome}}</h4>
       </div>
       <div class="card-body">
-        <h1 class="card-title pricing-card-title">Avaliacao<small class="text-body-secondary fw-light"> {{$serie->nome}}</small></h1>
+        <h1 class="card-title pricing-card-title">Avaliacao<small class="text-body-secondary fw-light"> colocar estrelas</small></h1>
         <ul class="list-unstyled mt-3 mb-4">
           <li>Genero
           </li>
-          <li>10 GB of storage</li>
-          <li>Priority email support</li>
-          <li>Help center access</li>
+          <li>Número de temporadas: <b>{{ $serie->seasons->count()}}</b></li>
+          <li>Número de episodes: <b> {{ $serie->seasons->first()->episodes->count() }}</b></li>
+          
         </ul>
         <button type="button" class="w-100 btn btn-lg btn-primary">Link trailler</button>
       </div>

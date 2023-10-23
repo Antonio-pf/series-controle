@@ -55,15 +55,12 @@ class SeriesController extends Controller
             Episode::insert($episodes);
             return $serie;
         });
-
-
         return to_route('series.index')
             ->with('mensagem.sucesso', "Série '{$serie->nome}' adicionado com sucesso!");
     }
 
     public function destroy(Series $series)
     {
-
 
         $series->delete();
 
@@ -81,9 +78,10 @@ class SeriesController extends Controller
     public function update(Series $series, SeriesFormRequest $request)
     {
 
+       // falta editar numro de eps e de seasons
         $series->fill($request->all());
         $series->save();
-        
+
 
         return to_route('series.index')
             ->with('mensagem.sucesso', "Série '{$series->nome}' atualizada com sucesso!");
