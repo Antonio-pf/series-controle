@@ -4,9 +4,11 @@
         @foreach ($seasons as $season)
             <li class="list-group-item d-flex justify-content-between align-items-center">
                 <a href=" {{ route('episodes.index',$season->id ) }} ">
-                <b>Temporada: {{ $season->number }}</b>
+                <b>Temporada: {{ $season->number }} </b>
             </a>
                 <span class="badge bg-secondary">
+                    {{ $season->numerOfWatchedEpisodes()}}
+                    /
                     {{ $season->episodes->count() }}
                 </span>
 
