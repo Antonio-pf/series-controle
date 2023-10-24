@@ -17,6 +17,7 @@ class SeriesController extends Controller
     {
         $series = Series::with(['seasons'])->get();
         $mensagemSucesso = session('mensagem.sucesso');
+        
         return view('series.index')->with(['series' => $series, 'mensagemSucesso' => $mensagemSucesso]);
     }
 

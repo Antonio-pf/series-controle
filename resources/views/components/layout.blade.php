@@ -11,11 +11,15 @@
 
 <body class="bg-custom">
 
-
-
     <div class="container mt-3 mb-3">
         <h1>{{ $title }} </h1>
 
+        @isset($mensagemSucesso)
+        
+        <div class="alert alert-success">
+            {{ $mensagemSucesso }}
+        </div>
+        @endisset
 
         @if ($errors->any())
             <div class="alert alert-danger">
