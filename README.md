@@ -6,10 +6,11 @@ Bem-vindo ao Controle de Séries em Laravel! Esta aplicação permite que você 
 
 Certifique-se de ter os seguintes requisitos instalados antes de começar:
 
-- PHP 8.1.2 ou superior
+- PHP 8.1.2 
 - Composer
 - Laravel
 - SQLite
+- Bootstrap
 
 ## Instalação
 
