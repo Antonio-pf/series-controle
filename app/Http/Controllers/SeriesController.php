@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Http\Requests\SeriesFormRequest;
 use App\Models\Series;
 use App\Repositories\SeriesRepository;
+use Illuminate\Auth\AuthenticationException;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class SeriesController extends Controller
 {
@@ -15,6 +17,7 @@ class SeriesController extends Controller
     }
     public function index(Request $request)
     {
+        
         $series = Series::with(['seasons'])->get();
         $mensagemSucesso = session('mensagem.sucesso');
         
