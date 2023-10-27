@@ -18,6 +18,12 @@
             <input type="password" name="password" id="password" class="form-group">
         </div>
 
+
+    <div class="form-group">
+        <label for="password_confirmation" class="form-label">Confirmação de Senha</label>
+        <input type="password" name="password_confirmation" id="password_confirmation" class="form-group">
+    </div>
+
         <button class="btn btn-primary">Registrar</button>
     </form>
 

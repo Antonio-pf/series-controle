@@ -19,6 +19,11 @@ class UsersController extends Controller
     public function store(Request $request)
     {
 
+
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required|string|min:8|confirmed',
+        ]);
         $data = $request->except(['_token']);
 
         $data['password'] = Hash::make($data['password']);
