@@ -93,5 +93,7 @@ Agora você pode acessar a aplicação em http://localhost:8000 no seu navegador
 - [x]  Marcar Episódios como Vistos: 4
 - [x]  Remover Séries, Temporadas e Episódios:
 - [x]  Adicionar Temporadas e Episódios:
+- [x]  Remover botão de sair após logado
+- [ ]  Não exibir botão entrar no forms de login
 - [ ] Confirmação de senha
 - [ ] Verificação usuários
