@@ -96,3 +96,4 @@ Agora você pode acessar a aplicação em http://localhost:8000 no seu navegador
 - [x]  Não exibir botão entrar no forms de login
 - [x] Confirmação de senha
 - [x] Verificação usuários
+- [ ] Envio de email após criar série
