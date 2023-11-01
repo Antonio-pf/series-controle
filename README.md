@@ -28,7 +28,6 @@ Siga estas etapas para configurar e iniciar o projeto:
 Navegue até a pasta do projeto:
 
  ```bash
-
 cd controle_series
 ```
 
@@ -94,6 +93,6 @@ Agora você pode acessar a aplicação em http://localhost:8000 no seu navegador
 - [x]  Remover Séries, Temporadas e Episódios:
 - [x]  Adicionar Temporadas e Episódios:
 - [x]  Remover botão de sair após logado
-- [ ]  Não exibir botão entrar no forms de login
-- [ ] Confirmação de senha
-- [ ] Verificação usuários
+- [x]  Não exibir botão entrar no forms de login
+- [x] Confirmação de senha
+- [x] Verificação usuários
