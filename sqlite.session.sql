@@ -1,2 +1,2 @@
-SELECT  * from episodes
+SELECT  * from jobs
 ;
