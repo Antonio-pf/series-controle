@@ -23,6 +23,7 @@ class LoginController
 
     public function destroy()
     {
+        
         Auth::logout();
 
         return to_route('login');

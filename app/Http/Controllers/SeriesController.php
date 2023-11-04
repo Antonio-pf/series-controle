@@ -26,8 +26,14 @@ class SeriesController extends Controller
         
         $series = Series::with(['seasons'])->get();
         $mensagemSucesso = session('mensagem.sucesso');
-        
-        return view('series.index')->with(['series' => $series, 'mensagemSucesso' => $mensagemSucesso]);
+        $user = auth()->user();
+       
+        return view('series.index')
+        ->with([
+            'series' => $series, 
+            'mensagemSucesso' => $mensagemSucesso,
+            'user' => $user,
+        ]);
     }
 
     public function create()
@@ -38,6 +44,12 @@ class SeriesController extends Controller
     public function store(SeriesFormRequest $request)
     {
 
+       $request->validate([
+            "nome" => $request->nome,
+            "seasonQty" => $request->seasonQty,
+            "episodesForSeason" => $request->episodesForSeason,
+       ]);
+    
         $serie = $this->repository->add($request);
 
         $userList = User::all();
@@ -50,7 +62,6 @@ class SeriesController extends Controller
             $request->episodesForSeason
         );
       
-        
             $when = now()->addSeconds($index * 6);
             Mail::to($user)->later($when, $email);
             

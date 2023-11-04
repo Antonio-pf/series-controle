@@ -15,11 +15,9 @@
                         </i>
                     </a>
 
-                   
                     @auth <a href="{{ route('seasons.index', $serie->id) }}">  @endauth
                         <small class="fs-5 fw-medium">{{ $serie->nome }}</small>
                     </a>
-                  
                   
                 </div>
 

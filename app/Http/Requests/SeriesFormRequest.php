@@ -23,7 +23,8 @@ class SeriesFormRequest extends FormRequest
     {
         return [
             'nome' => ['required', 'min:3'],
-            
+            'seasonQty' => ['required', 'numeric'],
+            'episodesForSeason' => ['required', 'numeric'],
         ];
     }
 
@@ -31,7 +32,11 @@ class SeriesFormRequest extends FormRequest
     {
         return [
             'nome.required' => 'O campo nome é obrigatório',
-            'nome.min' => 'O campo nome precisa de pelo menos :min caracteres'
+            'nome.min' => 'O campo nome precisa de pelo menos :min caracteres',
+            'seasonQty.numeric' => 'O campo temporada precisa ser numérico',
+            'seasonQty.required' => 'O campo temporada é obrigatório',
+            'episodesForSeason.numeric' => 'O campo episodes precisa ser numérico',
+            'episodesForSeason.required' => 'O campo episodes é obrigatório',
         ];
         
     }
