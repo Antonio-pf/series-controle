@@ -45,6 +45,9 @@ class SeriesController extends Controller
     public function store(SeriesFormRequest $request)
     {
 
+        $file = $request->file('cover');
+        dd($file);
+
         //add em um listener
         $serie = $this->repository->add($request);
         $seriesCreatedEvent = new EventsSeriesCreated(

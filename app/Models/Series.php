@@ -10,6 +10,7 @@ class Series extends Model
 {
     protected $fillable = [
         'nome',
+        'cover'
     ];
 
     public function seasons()
