@@ -3,7 +3,7 @@
 
 # {{ $nomeSerie }} criada
 
-    
+
 A série {{ $nomeSerie }} com {{ $qtdTemporadas }} temporadas e {{ $episodiosPorTemporada }} episódios criada!
 
 Acesse aqui:

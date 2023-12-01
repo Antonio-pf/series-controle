@@ -24,14 +24,14 @@ class SeriesController extends Controller
     }
     public function index(Request $request)
     {
-        
+
         $series = Series::with(['seasons'])->get();
         $mensagemSucesso = session('mensagem.sucesso');
         $user = auth()->user();
-       
+
         return view('series.index')
         ->with([
-            'series' => $series, 
+            'series' => $series,
             'mensagemSucesso' => $mensagemSucesso,
             'user' => $user,
         ]);
@@ -46,7 +46,6 @@ class SeriesController extends Controller
     {
 
         $file = $request->file('cover');
-        dd($file);
 
         //add em um listener
         $serie = $this->repository->add($request);
@@ -58,7 +57,7 @@ class SeriesController extends Controller
 
         );
        event($seriesCreatedEvent);
-        
+
         return to_route('series.index')
             ->with('mensagem.sucesso', "Série '{$serie->nome}' adicionado com sucesso!");
     }
