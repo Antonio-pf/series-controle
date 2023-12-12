@@ -98,3 +98,4 @@ Agora você pode acessar a aplicação em http://localhost:8000 no seu navegador
 - [x] Verificação usuários
 - [x] Envio de email após criar série
 - [ ] Validar envio de imagem - back
+- [ ] Remover arquivo ao apagar série

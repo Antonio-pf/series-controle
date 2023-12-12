@@ -2,19 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\DeleteSeriesCover;
 use App\Events\SeriesCreated as EventsSeriesCreated;
 use App\Http\Middleware\Autenticador;
 use App\Http\Requests\SeriesFormRequest;
-use App\Mail\SeriesCreated;
 use App\Models\Series;
-use App\Models\User;
 use App\Repositories\SeriesRepository;
-use DateTime;
-use Illuminate\Auth\AuthenticationException;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Mail;
-
 class SeriesController extends Controller
 {
 
@@ -68,6 +62,8 @@ class SeriesController extends Controller
     {
 
         $series->delete();
+
+        DeleteSeriesCover::dispatch($series->cover);
 
 
         return to_route('series.index')
