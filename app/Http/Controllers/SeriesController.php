@@ -45,9 +45,11 @@ class SeriesController extends Controller
     public function store(SeriesFormRequest $request)
     {
 
-        $file = $request->file('cover');
+        $coverPath = $request->file('cover')
+            ->store('series_cover', 'public');
 
-        //add em um listener
+        $request->coverPath = $coverPath;
+
         $serie = $this->repository->add($request);
         $seriesCreatedEvent = new EventsSeriesCreated(
             $serie->nome,
