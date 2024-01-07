@@ -98,3 +98,7 @@ Agora você pode acessar a aplicação em http://localhost:8000 no seu navegador
 - [x] Verificação usuários
 - [x] Envio de email após criar série
 - [ ] Validar envio de imagem - back
+- [ ] Api para criar uma nova série
+- [ ] Api para busca uma nova série
+- [x] Api para login
+- [ ] Api tratando envio da imagem
