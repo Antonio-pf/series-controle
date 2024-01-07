@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\API\AuthController;
+use App\Http\Controllers\API\SeasonsController;
 use App\Http\Controllers\API\SeriesController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -24,3 +25,5 @@ Route::post('/login', [AuthController::class, 'login']);
 
 //resource -> cria várias rotas para o mesmo controller
 Route::apiResource('/series',  SeriesController::class);
+Route::get('/series/{series}/seasons', [SeasonsController::class, 'seasons']);
+Route::get('/series/{series}/episodes', [SeasonsController::class, 'episodes']);
