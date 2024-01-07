@@ -31,7 +31,13 @@ class SeriesController
 
     public function show(int $series)
     {
-        return $series;
+
+        $seriesModel = Series::with('seasons.episodes')->find($series);
+
+        if($seriesModel === null) {
+            return response()->json(['message' => 'Series not found'],404);
+        }
+        return $seriesModel;
     }
 
     public function update(int $series, SeriesFormRequest $request)
