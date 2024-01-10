@@ -16,10 +16,11 @@ class SeriesController extends Controller
     {
         $this->middleware(Autenticador::class)->except('index');
     }
-    public function index(Request $request)
+    public function index()
     {
 
-        $series = Series::with(['seasons'])->get();
+        $series = Series::with(['seasons'])->paginate(5);
+
         $mensagemSucesso = session('mensagem.sucesso');
         $user = auth()->user();
 
@@ -62,11 +63,10 @@ class SeriesController extends Controller
     public function destroy(Series $series)
     {
 
+        if ($series->cover !== null)
+            DeleteSeriesCover::dispatch($series->cover);
+
         $series->delete();
-
-        DeleteSeriesCover::dispatch($series->cover);
-
-
         return to_route('series.index')
             ->with('mensagem.sucesso', "Série ' {$series->nome}' removida com sucesso!");
     }

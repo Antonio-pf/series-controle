@@ -39,8 +39,13 @@
                         </form>
                     </span>
                 @endauth
+
+
             </li>
         @endforeach
+        <div class="d-flex justify-content-center mt-2">
+            {{ $series->links('pagination::bootstrap-4') }}
 
+        </div>
     </ul>
 </x-layout>
