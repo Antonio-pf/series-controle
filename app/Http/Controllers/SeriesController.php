@@ -8,16 +8,21 @@ use App\Http\Middleware\Autenticador;
 use App\Http\Requests\SeriesFormRequest;
 use App\Models\Series;
 use App\Repositories\SeriesRepository;
+use App\Service\TmdbService;
 use Illuminate\Http\Request;
 class SeriesController extends Controller
 {
 
-    public function __construct(private SeriesRepository $repository)
+    protected $tmdbService;
+    public function __construct(private SeriesRepository $repository, TmdbService $tmdbService)
     {
+        $this->tmdbService = $tmdbService;
         $this->middleware(Autenticador::class)->except('index');
     }
     public function index()
     {
+
+        $ramdomSeries = $this->tmdbService->getRandomRatedSeries();
 
         $series = Series::with(['seasons'])->paginate(5);
 
@@ -29,6 +34,7 @@ class SeriesController extends Controller
             'series' => $series,
             'mensagemSucesso' => $mensagemSucesso,
             'user' => $user,
+            'ramdomSeries' => $ramdomSeries
         ]);
     }
 

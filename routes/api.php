@@ -20,10 +20,14 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-
 Route::post('/login', [AuthController::class, 'login']);
 
+Route::middleware('auth:sanctum')->group(function (){
+
+
 //resource -> cria várias rotas para o mesmo controller
-Route::apiResource('/series',  SeriesController::class);
-Route::get('/series/{series}/seasons', [SeasonsController::class, 'seasons']);
-Route::get('/series/{series}/episodes', [SeasonsController::class, 'episodes']);
+    Route::apiResource('/series',  SeriesController::class);
+    Route::get('/series/{series}/seasons', [SeasonsController::class, 'seasons']);
+    Route::get('/series/{series}/episodes', [SeasonsController::class, 'episodes']);
+
+});

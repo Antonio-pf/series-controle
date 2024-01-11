@@ -1,4 +1,4 @@
-<x-layout title="Séries" :mensagem-sucesso="$mensagemSucesso">
+<x-layout title="Séries" :mensagem-sucesso="$mensagemSucesso" :ramdomSeries="$ramdomSeries">
 
     @auth
         <a href="{{ route('series.create') }}" class="btn btn-dark mb-2">Adicionar séries</a>
