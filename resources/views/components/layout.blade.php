@@ -11,8 +11,46 @@
 
 <body class="bg-custom">
 
+<header>
+    <div class="px-3 py-2 bg-dark text-white">
+        <div class="container">
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                <i class="bi bi-boxes mx-2 fs-3 fw-bold"></i>
+                <a href="/" class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none">
+                    <span class="fs-3 fw-bolder">Moviemaker's</span>
+                </a>
 
+                <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
+                    <li>
+                        <a href="{{ route('series.index') }}" class="nav-link text-secondary">
+                            <i class="bi bi-stack d-block mx-auto mb-1 text-center"></i>
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('series.index') }}" class="nav-link text-white">
+                            <i class="bi bi-star-fill d-block mx-auto mb-1 text-center"></i>
+                            Favoritos
+                        </a>
+                    </li>
 
+                </ul>
+                <div class="dropdown text-end">
+                    <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
+                    </a>
+                    <ul class="dropdown-menu text-small" style="">
+                        <li><a class="dropdown-item" href="#">Settings</a></li>
+                        <li><a class="dropdown-item" href="#">Profile</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="{{ route('logout') }}">Sign out</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</header>
 <nav class="navbar navbar-expand-lg navbar light bg-light">
     <div class="container-fluid">
         <a href="{{ route('series.index') }}" class="navbar-brand">Home</a>
@@ -86,8 +124,5 @@
         {{ $slot }}
     </div>
 
-
-
 </body>
-
 </html>
