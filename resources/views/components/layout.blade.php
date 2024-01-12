@@ -11,6 +11,7 @@
 
 <body class="bg-custom">
 
+
 <header>
     <div class="px-3 py-2 bg-dark text-white">
         <div class="container">
@@ -22,7 +23,7 @@
 
                 <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
                     <li>
-                        <a href="{{ route('series.index') }}" class="nav-link text-secondary">
+                        <a href="{{ route('blog.index') }}" class="nav-link text-secondary">
                             <i class="bi bi-stack d-block mx-auto mb-1 text-center"></i>
                             Home
                         </a>
@@ -46,25 +47,20 @@
                         <li><a class="dropdown-item" href="{{ route('logout') }}">Sign out</a></li>
                     </ul>
                 </div>
+
+                <div class="d-flex text-end mx-2">
+                    <a href="{{ route('logout') }}" class="text-end link-light link-offset-1-hover">Sair</a>
+                </div>
+
+
             </div>
+
+
         </div>
-    </div>
 
+    </div>
 </header>
-<nav class="navbar navbar-expand-lg navbar light bg-light">
-    <div class="container-fluid">
-        <a href="{{ route('series.index') }}" class="navbar-brand">Home</a>
 
-        @auth
-            <a href="{{ route('logout') }}">Sair</a>
-        @endauth
-
-        @guest
-            <a href="{{ route('login') }}">Entrar</a>
-        @endguest
-
-    </div>
-</nav>
 
 
 {{--@if($ramdomSeries)--}}

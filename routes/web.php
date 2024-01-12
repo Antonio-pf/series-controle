@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BlogController as BlogControllerAlias;
 use App\Mail\SeriesCreated;
 use Illuminate\Support\Facades\Route;
 
@@ -22,6 +23,6 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-
+Route::resource('blog', BlogControllerAlias::class);
 require __DIR__.'/auth.php';
 
