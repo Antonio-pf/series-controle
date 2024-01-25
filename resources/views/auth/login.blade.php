@@ -1,56 +1,55 @@
 <x-guest-layout>
     <!-- Session Status -->
-    <x-auth-session-status class="mb-4" :status="session('status')" />
+    <x-auth-session-status class="mb-4" :status="session('status')"/>
+    <div class="container-fluid">
+        <form method="POST" action="{{ route('login') }}">
+            @csrf
+            @method('POST') <!-- Adiciona essa linha para indicar o método POST -->
+            <div class="row d-flex justify-content-center align-items-center my-5">
+                <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                    <div class="card bg-dark text-white" style="border-radius: 1rem;">
+                        <div class="card-body p-5 text-center ">
 
-    <form method="POST" action="{{ route('login') }}">
-        @csrf
+                            <div class="mb-md-3 mt-md-2 pb-3 ">
+                                <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
+                                <p class="text-white-50 mb-3">Please enter your login and password!</p>
 
-        <!-- Email Address -->
-        <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
-        </div>
+                                <div class="form-outline form-white mb-3">
+                                    <label class="form-label" for="typeEmailX">Email</label>
+                                    <input type="email" id="typeEmailX" class="form-control form-control-lg" name="email"/>
 
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
+                                </div>
 
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="current-password" />
+                                <div class="form-outline form-white mb-3">
+                                    <label class="form-label" for="typePasswordX">Password</label>
+                                    <input type="password" id="typePasswordX" class="form-control form-control-lg" name="password"/>
 
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
-        </div>
+                                </div>
 
-        <!-- Remember Me -->
-        <div class="block mt-4">
-            <label for="remember_me" class="inline-flex items-center">
-                <input id="remember_me" type="checkbox" class="rounded dark:bg-gray-900 border-gray-300 dark:border-gray-700 text-indigo-600 shadow-sm focus:ring-indigo-500 dark:focus:ring-indigo-600 dark:focus:ring-offset-gray-800" name="remember">
-                <span class="ml-2 text-sm text-gray-600 dark:text-gray-400">{{ __('Remember me') }}</span>
-            </label>
+                                <p class="small mb-3 pb-lg-1"><a class="text-white-50" href="#">Forgot password?</a></p>
 
-            <div class="d-flex justify-content-center align-items-end text-start">
-                <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('register') }}">
-                    {{ __('Sign in...') }}
-                </a>
+                                <button class="btn btn-outline-light btn-lg px-4" type="submit">{{ __('Log in') }}</button>
+
+                                <div class="d-flex justify-content-center text-center mt-3 pt-1">
+                                    <a href="#" class="text-white"><i class="fab fa-facebook-f fa-lg"></i></a>
+                                    <a href="#" class="text-white"><i class="fab fa-twitter fa-lg mx-2 px-1"></i></a>
+                                    <a href="#" class="text-white"><i class="fab fa-google fa-lg"></i></a>
+                                </div>
+                            </div>
+
+                            <div>
+                                <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800"
+                                   href="{{ route('register') }}">
+                                </a>
+                                <p class="mb-0">Don't have an account? <a href="{{ route('register') }}" class="text-white-50 fw-bold">{{ __('Sign in...') }}</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-
-        </div>
-
-        <div class="flex items-center justify-end mt-4">
+        </form>
+    </div>
 
 
-            @if (Route::has('password.request'))
-                <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('password.request') }}">
-                    {{ __('Forgot your password?') }}
-                </a>
-            @endif
 
-            <x-primary-button class="ml-3">
-                {{ __('Log in') }}
-            </x-primary-button>
-        </div>
-    </form>
 </x-guest-layout>
